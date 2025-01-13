@@ -1,6 +1,5 @@
 import './App.css'
 
-// Images
 import searchIcon  from './assets/search.svg'
 import clearIcon  from './assets/clear.svg'
 import cloudIcon  from './assets/cloud.svg'
@@ -32,8 +31,7 @@ const WeatherDeatails = ({icon, temp, city, country, lat, lon, humidity, wind}) 
         </div>
       </div>
       <div className="data-container">
-
-        {/* Humidity */}
+        
         <div className="element">
           <img src={humidityIcon} alt="Humidity" className='icon' />
           <div className='data'>
@@ -42,7 +40,6 @@ const WeatherDeatails = ({icon, temp, city, country, lat, lon, humidity, wind}) 
           </div>
         </div>
         
-        {/* Wind */}
         <div className="element">
           <img src={windIcon} alt="Wind" className='icon' />
           <div className='data'>
@@ -58,7 +55,7 @@ const WeatherDeatails = ({icon, temp, city, country, lat, lon, humidity, wind}) 
 
 function App() {
 
-  let api = "332877a044c7c32509d2555656adc83f"
+  let api = "*****7a044c7c32509d2555656a*****"
 
   const [icon, setIcon] = useState(snowIcon)
   const [temp, setTemp] = useState(0)
@@ -74,7 +71,6 @@ function App() {
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState(null)
 
-  // https://openweathermap.org/weather-conditions
   const weatherIcons = {
     "01d": clearIcon,
     "01n": clearIcon,
@@ -101,7 +97,6 @@ function App() {
     try{
       let res = await fetch(url)
       let data = await res.json()
-      // console.log(data)
       if(data.cod === "404"){
         console.error("City not found")
         setCityNotFound(true)
